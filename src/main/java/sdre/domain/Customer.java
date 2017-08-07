@@ -8,17 +8,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Size;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-public @NoArgsConstructor @Getter @Setter class Customer {
+public @NoArgsConstructor @Getter @Setter class Customer extends Entitybase {
 
-  private @Id @GeneratedValue Long id;
+//  private @Id @GeneratedValue Long id;
 
-  private @Column(nullable = false) String name;
+  private @Column(nullable = false) @Size(max=25, min=1) String name;
 
   private @Column(nullable = false) String email;
 
