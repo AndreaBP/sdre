@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @MappedSuperclass
-public @NoArgsConstructor @Getter @Setter class Entitybase {
+public @NoArgsConstructor @Getter @Setter class EntityBase {
 	@Id
 	@Column(columnDefinition = "VARCHAR(255)")//(34)
 	private String id;

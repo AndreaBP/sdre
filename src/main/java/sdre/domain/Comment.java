@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-public @NoArgsConstructor @Getter @Setter class Comment extends Entitybase{
+public @NoArgsConstructor @Getter @Setter class Comment extends EntityBase{
 
 //  private @Id @GeneratedValue Long id;
 

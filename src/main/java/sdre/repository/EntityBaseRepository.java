@@ -2,7 +2,7 @@ package sdre.repository;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 
-import sdre.domain.Entitybase;
+import sdre.domain.EntityBase;
 
-public interface EntityBaseRepository extends PagingAndSortingRepository<Entitybase, Long> {
+public interface EntityBaseRepository extends PagingAndSortingRepository<EntityBase, Long> {
 }

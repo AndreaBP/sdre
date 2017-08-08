@@ -29,17 +29,7 @@ public class ValidationServiceImpl implements ValidationService {
 	@Autowired
 	private EntityManager em;
 
-	@SuppressWarnings("rawtypes")
-	public Map<String, Map<String, Map<String, DefaultParameters>>> entity(Object ent) {
-		
-		Map<String, Map<String, Map<String, DefaultParameters>>> entityMap = new HashMap<>();
 
-		String entityName = ((EntityType) ent).getName();
-		entityMap.put(entityName, fields((EntityType) ent));
-
-		return entityMap;
-
-	}
 
 	public Map<String, Map<String, Map<String, DefaultParameters>>> entities() {
 		
@@ -83,8 +73,10 @@ public class ValidationServiceImpl implements ValidationService {
 
 		for (Annotation ann : annotation.annotationType().getAnnotations()) {
 			
+//			validationsMap.putAll(ann.annotationType().isAssignableFrom(Constraint.class) ? constraintAnnotation(annotation):...);
+			
 			if (ann.annotationType().isAssignableFrom(Constraint.class)) {
-
+				
 				validationsMap.putAll(constraintAnnotation(annotation));
 			}
 		}

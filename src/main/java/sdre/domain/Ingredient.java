@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-public @NoArgsConstructor @Getter @Setter class Ingredient extends Entitybase {
+public @NoArgsConstructor @Getter @Setter class Ingredient extends EntityBase {
 
 //  private @Id @GeneratedValue Long id;
 
