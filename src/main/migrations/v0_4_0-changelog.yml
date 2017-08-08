@@ -11,7 +11,7 @@ databaseChangeLog:
               primaryKey: true
               primaryKeyName: PizzaPK
             name: id
-            type: BINARY(16)
+            type: VARCHAR(255)
         - column:
             name: name
             type: VARCHAR(255)
@@ -28,17 +28,17 @@ databaseChangeLog:
               primaryKey: true
               primaryKeyName: CommentPK
             name: id
-            type: BINARY(16)
+            type: VARCHAR(255)
         - column:
             constraints:
               nullable: false
             name: customer_id
-            type: BINARY(16)
+            type: VARCHAR(255)
         - column:
             constraints:
               nullable: false
             name: pizza_id
-            type: BINARY(16)
+            type: VARCHAR(255)
         - column:
             name: rating
             type: INT
@@ -60,7 +60,7 @@ databaseChangeLog:
               primaryKey: true
               primaryKeyName: CustomerPK
             name: id
-            type: BINARY(16)
+            type: VARCHAR(255)
         - column:
             constraints:
               nullable: false
@@ -84,7 +84,7 @@ databaseChangeLog:
               primaryKey: true
               primaryKeyName: IngredientPK
             name: id
-            type: BINARY(16)
+            type: VARCHAR(255)
         - column:
             constraints:
               nullable: false
@@ -101,12 +101,12 @@ databaseChangeLog:
             constraints:
               nullable: false
             name: pizza_id
-            type: BINARY(16)
+            type: VARCHAR(255)
         - column:
             constraints:
               nullable: false
             name: ingredient_id
-            type: BINARY(16)
+            type: VARCHAR(255)
         tableName: Pizza_Ingredient
 - changeSet:
     id: 1498983508662-5

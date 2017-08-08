@@ -5,6 +5,6 @@ server:
 spring:
     datasource:
         driverClassName: com.mysql.jdbc.Driver
-        url: jdbc:mysql://127.0.0.1:3306/pizza-db?useSSL=false
+        url: jdbc:mysql://127.0.0.1:3300/pizza-db?useSSL=false
         username: pizza-user
         password: pizza-pass

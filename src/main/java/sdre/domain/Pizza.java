@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -23,7 +24,19 @@ public @NoArgsConstructor @Getter @Setter class Pizza extends Entitybase {
 
 	// private @Id @GeneratedValue Long id;
 
-	private @Column(nullable = false, length = 25) @NotNull @Pattern(regexp="") @Size(max=25, min=1) String name;
+	private @Column(nullable = false, length = 25) @NotNull @Size(max=25, min=1) String name;
+
+	private @Column(nullable = false) BigDecimal price;
+
+	@JoinTable(name = "Pizza_Ingredient", joinColumns = @JoinColumn(name = "pizza_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "ingredient_id", referencedColumnName = "id"))
+	private @ManyToMany Set<Ingredient> ingredients = new HashSet<>();
+
+	private @OneToMany(mappedBy = "pizza") Set<Comment> comments = new HashSet<>();
+	
+//	@PrePersist
+//	public void prePersist() {
+//		prePersist();
+//	}
 
 	public String getName() {
 		return name;
@@ -41,10 +54,19 @@ public @NoArgsConstructor @Getter @Setter class Pizza extends Entitybase {
 		this.price = price;
 	}
 
-	private @Column(nullable = false) BigDecimal price;
+	public Set<Ingredient> getIngredients() {
+		return ingredients;
+	}
 
-	@JoinTable(name = "Pizza_Ingredient", joinColumns = @JoinColumn(name = "pizza_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "ingredient_id", referencedColumnName = "id"))
-	private @ManyToMany Set<Ingredient> ingredients = new HashSet<>();
+	public void setIngredients(Set<Ingredient> ingredients) {
+		this.ingredients = ingredients;
+	}
 
-	private @OneToMany(mappedBy = "pizza") Set<Comment> comments = new HashSet<>();
+	public Set<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(Set<Comment> comments) {
+		this.comments = comments;
+	}
 }
