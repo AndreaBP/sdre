@@ -13,14 +13,13 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
+import fsp3.domain.EntityBase;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-public @NoArgsConstructor @Getter @Setter class Comment extends EntityBase{
-
-//  private @Id @GeneratedValue Long id;
+public @NoArgsConstructor @Getter @Setter class Comment extends EntityBase {
 
   private @Column(name = "customer_id", nullable = false) Long customerId;
 

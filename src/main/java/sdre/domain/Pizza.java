@@ -10,21 +10,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.PrePersist;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import fsp3.domain.EntityBase;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import sdre.annotations.ValidRange;
 
 @Entity
 public @NoArgsConstructor @Getter @Setter class Pizza extends EntityBase {
 
-	// private @Id @GeneratedValue Long id;
-
-	private @Column(nullable = false, length = 25) @NotNull @Size(max=25, min=1) String name;
+	private @Column(nullable = false, length = 25) @NotNull @ValidRange(min=5, max=15) @Size(max=25, min=1) String name;
 
 	private @Column(nullable = false) BigDecimal price;
 
@@ -33,40 +31,4 @@ public @NoArgsConstructor @Getter @Setter class Pizza extends EntityBase {
 
 	private @OneToMany(mappedBy = "pizza") Set<Comment> comments = new HashSet<>();
 	
-//	@PrePersist
-//	public void prePersist() {
-//		prePersist();
-//	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public BigDecimal getPrice() {
-		return price;
-	}
-
-	public void setPrice(BigDecimal price) {
-		this.price = price;
-	}
-
-	public Set<Ingredient> getIngredients() {
-		return ingredients;
-	}
-
-	public void setIngredients(Set<Ingredient> ingredients) {
-		this.ingredients = ingredients;
-	}
-
-	public Set<Comment> getComments() {
-		return comments;
-	}
-
-	public void setComments(Set<Comment> comments) {
-		this.comments = comments;
-	}
 }

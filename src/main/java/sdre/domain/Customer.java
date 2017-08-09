@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 
+import fsp3.domain.EntityBase;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

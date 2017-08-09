@@ -15,7 +15,7 @@ public class PizzaEventHandler {
 
   @HandleBeforeCreate
   public void beforePizzaSave(Pizza pizza) {
-    pizza.setPrice(pizza.getPrice().multiply(new BigDecimal("0.9")));
+    //pizza.setPrice(pizza.getPrice().multiply(new BigDecimal("0.9")));
     pizza.setId(UUID.randomUUID().toString().replaceAll("-", ""));
   }
 }
